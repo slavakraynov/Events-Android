@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_tab_titles">
+        <item>События</item>
+        <item>Новости</item>
+    </string-array>
+</resources>

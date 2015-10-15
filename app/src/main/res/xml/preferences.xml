@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:key="category_events" android:title="@string/events">
+        <CheckBoxPreference
+            android:key="PUSH_EVENTS_ENABLE"
+            android:title="@string/prefs_push_events_title"
+            android:summary="@string/prefs_push_events_summary"
+            android:defaultValue="true" />
+        <Preference
+            android:dependency="PUSH_EVENTS_ENABLE"
+            android:title="@string/prefs_push_orgs_customize_title"
+            android:summary="@string/prefs_push_orgs_customize_summary"
+            android:key="push_events_orgs_customize"
+            android:id="@+id/push_events_orgs_customize" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="category_posts" android:title="@string/posts">
+        <CheckBoxPreference
+            android:key="PUSH_POSTS_ENABLE"
+            android:title="@string/prefs_push_posts_title"
+            android:summary="@string/prefs_push_posts_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="category_news" android:title="@string/news">
+        <CheckBoxPreference
+            android:key="PUSH_NEWS_ENABLE"
+            android:title="@string/prefs_push_news_title"
+            android:summary="@string/prefs_push_news_summary"
+            android:defaultValue="true" />
+        <Preference
+            android:dependency="PUSH_NEWS_ENABLE"
+            android:title="@string/prefs_push_orgs_customize_title"
+            android:summary="@string/prefs_push_orgs_customize_summary"
+            android:key="push_news_orgs_customize"
+            android:id="@+id/push_news_orgs_customize" />
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="Информация" >
+        <Preference
+            android:title="@string/prefs_about_description"
+            android:summary="@string/prefs_about_text" />
+        <Preference
+            android:key="information_report"
+            android:title="@string/prefs_information_report_to_team"
+            android:summary="@string/prefs_information_report_to_team_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>
