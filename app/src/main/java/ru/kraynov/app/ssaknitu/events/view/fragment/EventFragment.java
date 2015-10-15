@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.manuelpeinado.fadingactionbar.view.ObservableScrollView;
 import com.manuelpeinado.fadingactionbar.view.OnScrollChangedCallback;
+import com.nineoldandroids.view.ViewHelper;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 
@@ -188,12 +189,7 @@ public class EventFragment extends EvFragment implements OnScrollChangedCallback
     }
 
     private void updateParallaxEffect(int scrollPosition) {
-        float damping = 0.5f;
-        int dampedScroll = (int) (scrollPosition * damping);
-        int offset = mLastDampedScroll - dampedScroll;
-        mHeader.offsetTopAndBottom(-offset);
-
-        mLastDampedScroll = dampedScroll;
+        ViewHelper.setTranslationY(mHeader, scrollPosition / 2);
     }
 
     private int interpolate(int from, int to, float param) {

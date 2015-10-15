@@ -8,6 +8,6 @@ public class Logger {
     static final boolean DEBUG = BuildConfig.DEBUG;
 
     public static void log(String s){
-        if (DEBUG) Log.e("vsempoputi",s);
+        if (DEBUG) Log.e("events",s);
     }
 }

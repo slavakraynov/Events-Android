@@ -211,11 +211,14 @@
                         android:textSize="16dp"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
+                        android:linksClickable="true"
+                        android:autoLink="all"
                         android:textColor="@color/material_blue_grey_500"
                         android:layout_below="@+id/title"
                         android:layout_alignParentRight="true"
                         android:gravity="center_vertical"
-                        android:id="@+id/description" />
+                        android:id="@+id/description"
+                        android:focusable="true" />
                 </LinearLayout>
 
             </LinearLayout>
