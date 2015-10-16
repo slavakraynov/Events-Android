@@ -33,5 +33,8 @@
     <string name="prefs_about_ssaknitu_summary">Новости</string>
     <string name="prefs_about_events">events.ssaknitu.ru</string>
     <string name="prefs_about_events_summary">События</string>
+    <string name="error_email_no_clients">Нет подходящих приложений для отправки сообщения. Пожалуйста, отправьте свое сообщение другим способом</string>
+    <string name="send_email_over">Отправить сообщение через</string>
+    <string name="support_email_subject">Events - обращение в службу поддержки</string>
 
 </resources>

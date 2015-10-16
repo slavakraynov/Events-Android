@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 import ru.kraynov.app.ssaknitu.events.R;
+import ru.kraynov.app.ssaknitu.events.sdk.util.UtilsHelper;
 import ru.kraynov.app.ssaknitu.events.util.helper.DataLoadingHelper;
 import ru.kraynov.app.ssaknitu.events.util.helper.SharedPreferencesHelper;
 import ru.kraynov.app.ssaknitu.events.view.activity.EvFragmentContainerActivity;
@@ -24,6 +28,7 @@ public class PreferencesFragment extends EvPreferenceFragment implements Prefere
     private Preference push_news_enable;
     private Preference information_events;
     private Preference information_ssaknitu;
+    private Preference information_report;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,11 +54,13 @@ public class PreferencesFragment extends EvPreferenceFragment implements Prefere
         push_news_enable = findPreference("PUSH_NEWS_ENABLE");
         information_events = findPreference("information_events");
         information_ssaknitu = findPreference("information_ssaknitu");
+        information_report = findPreference("information_report");
 
         push_events_orgs_customize.setOnPreferenceClickListener(this);
         push_news_orgs_customize.setOnPreferenceClickListener(this);
         information_ssaknitu.setOnPreferenceClickListener(this);
         information_events.setOnPreferenceClickListener(this);
+        information_report.setOnPreferenceClickListener(this);
 
         return super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle);
     }
@@ -105,8 +112,32 @@ public class PreferencesFragment extends EvPreferenceFragment implements Prefere
                         new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://ssaknitu.ru"))
                 );
                 break;
+            case "information_report":
+                openMailReport();
+                break;
         }
 
         return false;
+    }
+
+    private void openMailReport() {
+        String text = "<br />-------";
+        HashMap<String, String> deviceInfo = UtilsHelper.getDeviceInfoMap(getActivity());
+
+        if (deviceInfo!=null){
+            text+="<br />"
+                    +deviceInfo.get("name")
+                    +", Android "+deviceInfo.get("os_version")+" "+deviceInfo.get("locale")
+                    +", Events v"+deviceInfo.get("app_version")+" ("+deviceInfo.get("app_build")+")";
+        }
+
+        Intent i = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "android@ssaknitu.ru", null));
+        i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.support_email_subject));
+        i.putExtra(Intent.EXTRA_TEXT,  Html.fromHtml(text));
+        try {
+            startActivity(Intent.createChooser(i, getString(R.string.send_email_over)));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(getActivity(), R.string.error_email_no_clients, Toast.LENGTH_SHORT).show();
+        }
     }
 }
