@@ -29,5 +29,9 @@
     <string name="error_load_event">Ошибка при загрузке события</string>
     <string name="prefs_app_push_sound_title">Звук уведомлений</string>
     <string name="prefs_app_push_sound_summary">Увдомления будут сопровождаться звуком</string>
+    <string name="prefs_about_ssaknitu">ssaknitu.ru</string>
+    <string name="prefs_about_ssaknitu_summary">Новости</string>
+    <string name="prefs_about_events">events.ssaknitu.ru</string>
+    <string name="prefs_about_events_summary">События</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package ru.kraynov.app.ssaknitu.events.view.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.view.LayoutInflater;
@@ -21,6 +22,8 @@ public class PreferencesFragment extends EvPreferenceFragment implements Prefere
     private Preference push_events_enable;
     private Preference push_posts_enable;
     private Preference push_news_enable;
+    private Preference information_events;
+    private Preference information_ssaknitu;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,9 +47,13 @@ public class PreferencesFragment extends EvPreferenceFragment implements Prefere
         push_events_enable = findPreference("PUSH_EVENTS_ENABLE");
         push_posts_enable = findPreference("PUSH_POSTS_ENABLE");
         push_news_enable = findPreference("PUSH_NEWS_ENABLE");
+        information_events = findPreference("information_events");
+        information_ssaknitu = findPreference("information_ssaknitu");
 
         push_events_orgs_customize.setOnPreferenceClickListener(this);
         push_news_orgs_customize.setOnPreferenceClickListener(this);
+        information_ssaknitu.setOnPreferenceClickListener(this);
+        information_events.setOnPreferenceClickListener(this);
 
         return super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle);
     }
@@ -87,6 +94,16 @@ public class PreferencesFragment extends EvPreferenceFragment implements Prefere
                                     .putExtra(EvFragmentContainerActivity.ARG_FRAGMENT_ID, 5)
                     );
                 } else Toast.makeText(getActivity(), R.string.no_connection, Toast.LENGTH_SHORT).show();
+                break;
+            case "information_events":
+                startActivity(
+                        new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://events.ssaknitu.ru"))
+                );
+                break;
+            case "information_ssaknitu":
+                startActivity(
+                        new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://ssaknitu.ru"))
+                );
                 break;
         }
 

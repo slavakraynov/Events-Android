@@ -40,16 +40,19 @@
             android:title="@string/prefs_app_push_sound_title"
             android:summary="@string/prefs_app_push_sound_summary"
             android:defaultValue="false" />
-        <Preference
-            android:dependency="PUSH_EVENTS_ENABLE"
-            android:title="@string/prefs_push_orgs_customize_title"
-            android:summary="@string/prefs_push_orgs_customize_summary"
-            android:key="push_events_orgs_customize"
-            android:id="@+id/push_events_orgs_customize" />
     </PreferenceCategory>
     <PreferenceCategory
             android:title="Информация" >
         <Preference
+            android:key="information_events"
+            android:title="@string/prefs_about_events"
+            android:summary="@string/prefs_about_events_summary" />
+        <Preference
+            android:key="information_ssaknitu"
+            android:title="@string/prefs_about_ssaknitu"
+            android:summary="@string/prefs_about_ssaknitu_summary" />
+        <Preference
+            android:key="information_description"
             android:title="@string/prefs_about_description"
             android:summary="@string/prefs_about_text" />
         <Preference

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KNRTU.events</string>
+    <string name="prefs_about_description">KNRTU.events для Android</string>
+</resources>
