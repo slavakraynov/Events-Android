@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="prefs_about_text">Версия 1.0. Сборка от 17.10.2015</string>
     <string name="app_name">КНИТУ.events</string>
     <string name="events">События</string>
     <string name="event">Событие</string>
@@ -14,7 +14,6 @@
     <string name="prefs_push_posts_summary">Получать уведомления о новых статьях</string>
     <string name="prefs_push_news_summary">Получать свежие новости</string>
     <string name="prefs_about_description">КНИТУ.events для Android</string>
-    <string name="prefs_about_text">Версия 1.0. Сборка от 16.10.2015</string>
     <string name="prefs_information_report_to_team">Связаться с разработчиками</string>
     <string name="prefs_information_report_to_team_summary">android@ssaknitu.ru</string>
     <string name="settings">Настройки</string>
