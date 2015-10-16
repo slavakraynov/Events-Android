@@ -141,6 +141,7 @@ public class GcmIntentService extends IntentService {
                         .bigText(contentText))
                         .setAutoCancel(true)
                         .setContentText(contentText)
+                        .setColor(getResources().getColor(R.color.material_red_500))
                         .setSound(soundUri);
 
         if (contentIntent!=null) mBuilder.setContentIntent(contentIntent);
