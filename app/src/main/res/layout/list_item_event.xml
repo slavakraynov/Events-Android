@@ -15,7 +15,8 @@
         android:focusableInTouchMode="false">
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:paddingBottom="15dp">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -24,40 +25,73 @@
                 android:scaleType="centerCrop" />
 
             <ru.kraynov.app.ssaknitu.events.view.widget.EvTextView
-                tj:fontName="Roboto-Light.ttf"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="День первокурсника 2014"
+                android:text="TITLE"
                 android:layout_below="@+id/cover"
                 android:id="@+id/title"
-                android:textColor="@android:color/black"
+                android:textColor="@color/material_red_500"
                 android:textIsSelectable="false"
-                android:textStyle="bold"
                 android:focusable="false"
-                android:textSize="21dp"
+                android:textSize="22sp"
                 android:gravity="top"
                 android:layout_gravity="top"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"/>
 
+            <ru.kraynov.app.ssaknitu.events.view.widget.EvTextView
+                tj:fontName="Roboto-Light.ttf"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="SUBTITLE"
+                android:layout_below="@+id/organisation"
+                android:id="@+id/subtitle"
+                android:textColor="#aa4d4d4d"
+                android:textIsSelectable="false"
+                android:focusable="false"
+                android:textSize="14sp"
+                android:gravity="top"
+                android:layout_gravity="top"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp" />
 
             <ru.kraynov.app.ssaknitu.events.view.widget.EvTextView
+                tj:fontName="Roboto-Bold.ttf"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="ORGANISATION"
+                android:layout_below="@+id/title"
+                android:id="@+id/organisation"
+                android:textColor="#4d4d4d"
+                android:textIsSelectable="false"
+                android:focusable="false"
+                android:textSize="14dp"
+                android:gravity="top"
+                android:layout_gravity="top"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold" />
+
+            <ru.kraynov.app.ssaknitu.events.view.widget.EvTextView
+                tj:fontName="Roboto-Light.ttf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10.10.2010"
+                android:text="DATE"
                 android:id="@+id/date"
-                android:background="@color/material_red_500"
+                android:background="@drawable/events_date_background_round"
                 android:paddingLeft="7dp"
                 android:paddingRight="7dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
-                android:textSize="17dp"
+                android:textSize="13dp"
                 android:textColor="@android:color/white"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp" />
         </RelativeLayout>
     </FrameLayout>
 </LinearLayout>

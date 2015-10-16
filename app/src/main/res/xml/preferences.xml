@@ -34,6 +34,19 @@
             android:key="push_news_orgs_customize"
             android:id="@+id/push_news_orgs_customize" />
     </PreferenceCategory>
+    <PreferenceCategory android:key="category_all" android:title="@string/category_all">
+        <CheckBoxPreference
+            android:key="APP_PUSH_SOUND"
+            android:title="@string/prefs_app_push_sound_title"
+            android:summary="@string/prefs_app_push_sound_summary"
+            android:defaultValue="false" />
+        <Preference
+            android:dependency="PUSH_EVENTS_ENABLE"
+            android:title="@string/prefs_push_orgs_customize_title"
+            android:summary="@string/prefs_push_orgs_customize_summary"
+            android:key="push_events_orgs_customize"
+            android:id="@+id/push_events_orgs_customize" />
+    </PreferenceCategory>
     <PreferenceCategory
             android:title="Информация" >
         <Preference

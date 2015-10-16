@@ -78,7 +78,7 @@ public class MainFragment extends EvFragment{
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.add(0,0,0, R.string.settings).setIcon(R.drawable.ic_settings_white_48dp).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(0,0,0, R.string.settings).setIcon(R.drawable.ic_settings_white_24dp).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         super.onCreateOptionsMenu(menu, inflater);
     }

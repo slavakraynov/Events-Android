@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -21,6 +20,7 @@ import ru.kraynov.app.ssaknitu.events.R;
 import ru.kraynov.app.ssaknitu.events.sdk.api.model.EventModel;
 import ru.kraynov.app.ssaknitu.events.view.activity.EvFragmentContainerActivity;
 import ru.kraynov.app.ssaknitu.events.view.fragment.EventFragment;
+import ru.kraynov.app.ssaknitu.events.view.widget.EvTextView;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder>  {
 
@@ -50,6 +50,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         }
 
         holder.title.setText(getItem(position).title.replace("&#171;","\"").replace("&#187;","\""));
+        holder.organisation.setText(getItem(position).organisation_name);
+        holder.subtitle.setHTMLTrimmed(getItem(position).description_short.replace("&#171;", "\"").replace("&#187;", "\""));
         holder.date.setText(date);
         Picasso.with(context).load("http://" + getItem(position).event_cover).error(R.color.material_blue_grey_100).placeholder(R.color.material_blue_grey_100).into(holder.cover);
         holder.root.setOnClickListener(new View.OnClickListener() {
@@ -80,8 +82,10 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.title) TextView title;
-        @InjectView(R.id.date) TextView date;
+        @InjectView(R.id.title) EvTextView title;
+        @InjectView(R.id.organisation) EvTextView organisation;
+        @InjectView(R.id.subtitle) EvTextView subtitle;
+        @InjectView(R.id.date) EvTextView date;
         @InjectView(R.id.cover) ImageView cover;
         View root;
 

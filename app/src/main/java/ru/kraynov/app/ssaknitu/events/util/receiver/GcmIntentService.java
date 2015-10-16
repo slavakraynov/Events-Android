@@ -130,7 +130,8 @@ public class GcmIntentService extends IntentService {
                 break;
         }
 
-        Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        Uri soundUri = SharedPreferencesHelper.getInstance().getBoolean(SharedPreferencesHelper.PREFS.APP_PUSH_SOUND, false ) ?
+                RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION) : null;
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)

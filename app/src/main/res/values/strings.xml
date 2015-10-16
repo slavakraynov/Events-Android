@@ -14,7 +14,7 @@
     <string name="prefs_push_posts_summary">Получать уведомления о новых статьях</string>
     <string name="prefs_push_news_summary">Получать свежие новости</string>
     <string name="prefs_about_description">КНИТУ.events для Android</string>
-    <string name="prefs_about_text">Версия 1.0. Сборка от 14.10.2015</string>
+    <string name="prefs_about_text">Версия 1.0. Сборка от 16.10.2015</string>
     <string name="prefs_information_report_to_team">Связаться с разработчиками</string>
     <string name="prefs_information_report_to_team_summary">android@ssaknitu.ru</string>
     <string name="settings">Настройки</string>
@@ -27,5 +27,7 @@
     <string name="news">Новости</string>
     <string name="error_load_post">Ошибка при загрузке статьи</string>
     <string name="error_load_event">Ошибка при загрузке события</string>
+    <string name="prefs_app_push_sound_title">Звук уведомлений</string>
+    <string name="prefs_app_push_sound_summary">Увдомления будут сопровождаться звуком</string>
 
 </resources>
