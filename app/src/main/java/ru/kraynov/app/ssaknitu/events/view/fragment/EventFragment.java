@@ -156,7 +156,7 @@ public class EventFragment extends EvFragment implements OnScrollChangedCallback
                 getActivity().finish();
                 break;
             case 0:
-                if (eventData!=null && eventData.id!=null) ShareHelper.shareText(getActivity(), String.valueOf(Html.fromHtml("Событие: "+eventData.title + "<br /><br />http://events.ssaknitu.ru/event/" + eventData.id)));
+                if (eventData!=null && eventData.id!=null) ShareHelper.shareText(getActivity(), String.valueOf(Html.fromHtml(getString(R.string.event)+": "+eventData.title + "<br /><br />http://events.ssaknitu.ru/event/" + eventData.id)));
                 break;
         }
         return false;
