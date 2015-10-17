@@ -8,12 +8,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.manuelpeinado.fadingactionbar.view.ObservableScrollView;
@@ -33,6 +34,8 @@ import retrofit.client.Response;
 import ru.kraynov.app.ssaknitu.events.R;
 import ru.kraynov.app.ssaknitu.events.sdk.api.Api;
 import ru.kraynov.app.ssaknitu.events.sdk.api.model.EventModel;
+import ru.kraynov.app.ssaknitu.events.util.helper.ShareHelper;
+import ru.kraynov.app.ssaknitu.events.view.widget.EvTextView;
 
 public class EventFragment extends EvFragment implements OnScrollChangedCallback {
     public static final String ARG_EVENT_DATA = "ARG_EVENT_DATA";
@@ -42,12 +45,12 @@ public class EventFragment extends EvFragment implements OnScrollChangedCallback
     private int id;
 
     @InjectView(R.id.header) View mHeader;
-    @InjectView(R.id.title) TextView tv_title;
-    @InjectView(R.id.date) TextView tv_date;
-    @InjectView(R.id.organisation) TextView tv_organisation;
-    @InjectView(R.id.time) TextView tv_time;
-    @InjectView(R.id.address) TextView tv_address;
-    @InjectView(R.id.description) TextView tv_description;
+    @InjectView(R.id.title) EvTextView tv_title;
+    @InjectView(R.id.date) EvTextView tv_date;
+    @InjectView(R.id.organisation) EvTextView tv_organisation;
+    @InjectView(R.id.time) EvTextView tv_time;
+    @InjectView(R.id.address) EvTextView tv_address;
+    @InjectView(R.id.description) EvTextView tv_description;
     @InjectView(R.id.scrollview) ObservableScrollView osv_container;
     @InjectView(R.id.progressBarCenter) ProgressBar pb_progress;
     private Drawable mActionBarBackgroundDrawable;
@@ -135,8 +138,15 @@ public class EventFragment extends EvFragment implements OnScrollChangedCallback
         tv_organisation.setText(eventData.organisation_name);
         tv_time.setText(eventData.time_start + " - " + eventData.time_end);
         tv_address.setText(eventData.address);
-        tv_description.setText(Html.fromHtml(eventData.description));
+        tv_description.setHTMLTrimmed(eventData.description);
         Picasso.with(getActivity()).load("http://" + eventData.event_cover).into(((ImageView) mHeader));
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0,0,0, R.string.share).setIcon(R.drawable.ic_share_white_24dp).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
@@ -144,6 +154,9 @@ public class EventFragment extends EvFragment implements OnScrollChangedCallback
         switch (item.getItemId()){
             case android.R.id.home:
                 getActivity().finish();
+                break;
+            case 0:
+                if (eventData!=null && eventData.id!=null) ShareHelper.shareText(getActivity(), String.valueOf(Html.fromHtml("Событие: "+eventData.title + "<br /><br />http://events.ssaknitu.ru/event/" + eventData.id)));
                 break;
         }
         return false;

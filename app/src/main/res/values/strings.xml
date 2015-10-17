@@ -35,5 +35,6 @@
     <string name="error_email_no_clients">Нет подходящих приложений для отправки сообщения. Пожалуйста, отправьте свое сообщение другим способом</string>
     <string name="send_email_over">Отправить сообщение через</string>
     <string name="support_email_subject">Events - обращение в службу поддержки</string>
+    <string name="share">Поделиться</string>
 
 </resources>
